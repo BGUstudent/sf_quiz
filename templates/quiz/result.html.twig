@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuizController!{% endblock %}
+
+{% block body %}
+    <h1>Vous avez obtenu {{ score }} bonnes réponses sur {{ count }}<br></h1>
+    <br><h3>Correction :</h3>
+    {% for item in wrong %}
+        <br><h5><b>{{ item[0].question.content }}</b></h5><br>
+        <h5><span class="text-success">{{ item[0].question.answers[0].content }}</span></h5>
+        <span class="text-danger">{{ item[0].content }}</span><br>
+    {% endfor %}
+{% endblock %}

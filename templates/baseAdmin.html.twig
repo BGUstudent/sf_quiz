@@ -30,11 +30,28 @@
                   <a class="nav-link" href="/admin/login">Admin</a>
                 </li>
               </ul>
-              <form method='GET' class="form-inline my-2 my-lg-0" action="/quiz/search">
-                <input class="form-control mr-sm-2" name='key' type="text" placeholder="Search">
-                <button class="btn btn-secondary my-2 my-sm-0" name='submit' type="submit">Search</button>
-              </form>
+
+              <ul class="navbar-nav ml-auto">
+                {% if not app.user %}
+                <li class="nav-item">
+                  <a href="{{ path('login') }}" class="nav-link">Connexion</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a href="{{ path('logout') }}" class="nav-link">Deconnexion</a>
+                </li>
+                {% endif %}
+              </ul> 
             </div>
+        </nav>
+        <nav class="d-flex flex-row bd-highlight mb-3" style="background-color: #e3f2fd;">
+            <a class="p-2 bd-highlight m-auto h5" href="/admin/add">Ajouter une question</a>
+            <a class="p-2 bd-highlight m-auto h5" href="/admin/edit">Editer/Effacer une question</a>
+            {% if  app.user %}
+              {% if  app.user.getRoles()==['ROLE_ADMIN'] %}
+                <a class="p-2 bd-highlight m-auto h5" href="/admin/manage">Gérer les utisateurs</a>
+              {% endif %}
+            {% endif %}
         </nav>
         <div style="padding:1% 2%">
         {% block body %}{% endblock %}
@@ -42,3 +59,4 @@
       </div>
     </body>
 </html>
+

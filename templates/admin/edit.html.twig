@@ -1,0 +1,16 @@
+{% extends 'baseAdmin.html.twig' %}
+{# {% form_theme form 'bootstrap_4_layout.html.twig' %} #}
+
+{% block body %}
+<h2>Editer/Supprimer une question</h2>
+<div class="center">
+    {% for item in question %}
+        <br><b>{{ item.content }}</b>
+        {% for answer in item.answers %}
+            <br>{{ answer.content }}
+        {% endfor %}
+    <br><a href="{{ path('edit1', {'id': item.id}) }}">Editer la question</a><br>
+    <a href="{{ path('delete', {'id': item.id}) }}">Effacer la question</a><br>
+    {% endfor %}
+</div>
+{% endblock %}

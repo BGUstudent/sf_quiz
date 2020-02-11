@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuizController!{% endblock %}
+
+{% block body %}
+{% if match == NULL %}
+    <p>Pas trouvé</p>
+{% else %}
+    {% for item in match %}
+        <br><a href="{{ path('notion', {'id': item.id}) }}">{{ item.concepts }}</a><br>
+    {% endfor %}
+{% endif %}
+{% endblock %}

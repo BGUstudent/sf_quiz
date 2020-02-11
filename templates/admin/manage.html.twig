@@ -1,0 +1,10 @@
+{% extends 'baseAdmin.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <h2>Ajouter un utilisateur</h2>
+    {{ form_start(form, {'attr':{'class': 'font-weight-bolder'}}) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn btn-success">Enregistrer</button>
+    {{ form_end(form) }}
+{% endblock %}

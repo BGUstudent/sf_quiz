@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuizController!{% endblock %}
+
+{% block body %}
+
+<div class="row row-cols-1 row-cols-md-2">
+    {% for item in question %}
+    <div class="col mb-4">
+        <div class="card-body">
+            <div class="card border-success p-2">
+                <h5 class="card-title">{{ item.concepts }}</h5>
+                <p class="card-text">{{ item.answers[0].content[:70] }}...</p>
+                <a href="{{ path('notion', {'id': item.id}) }}">Lire la suite</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+    
+      
+        
+        
