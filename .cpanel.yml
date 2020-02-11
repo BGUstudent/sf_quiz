@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/alexchauvet/public_html/
+    - /home/alexchauvet/repositories -R SF_Quiz $DEPLOYPATH
