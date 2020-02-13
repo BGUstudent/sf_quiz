@@ -11,8 +11,6 @@ use App\Form\QuestionType;
 use App\Repository\QuestionsRepository;
 use Symfony\Component\HttpFoundation\Request;
 
-
-
 class QuizController extends AbstractController
 {
     /**
